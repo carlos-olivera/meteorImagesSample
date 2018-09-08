@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Images
+      Libros
     </ion-title>
      <ion-buttons end>
       <button ion-button icon-only (click)="insertImage()">
@@ -15,8 +15,9 @@
   <ion-card *ngFor="let image of images | async">
     <img [src]="image.picture" />
     <div class="card-title">{{image.title}}</div>
-    <div class="card-subtitle">DAKAR 2016</div>
+    <div class="card-subtitle">O RLY parody book covers</div>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque </p>
-    <p text-center><button ion-button color="danger" (click)="removeImage(image)">Remover</button><p>
+    <p text-center><button ion-button color="danger" (click)="removeImage(image)">Remover</button>
+      <button ion-button  (click)="likeImage(image)">Favoritos: {{image.likes}}</button><p>
   </ion-card>
 </ion-content>

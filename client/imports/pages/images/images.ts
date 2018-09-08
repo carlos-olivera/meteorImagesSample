@@ -25,6 +25,16 @@ export class ImagesPage implements OnInit {
     Images.remove({_id: image._id}).subscribe(() => {});
   }
 
+  likeImage(image: Image) {
+
+     Images.update(image._id, {
+
+      $set: { likes: image.likes + 1 },
+
+    }).subscribe(() => {});
+
+  }
+
   insertImage() {
   let alert = this.alertCtrl.create({
     title: 'Nueva Imagen',
@@ -49,7 +59,7 @@ export class ImagesPage implements OnInit {
       {
         text: 'Insertar',
         handler: data => {
-          Images.insert({title: data.titulo, picture: data.url}).subscribe(() => {});
+          Images.insert({title: data.titulo, picture: data.url, likes:0}).subscribe(() => {});
         }
       }
     ]
